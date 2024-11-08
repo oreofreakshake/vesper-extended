@@ -836,7 +836,7 @@
       "name": "Support",
       "scope": "support.function",
       "settings": {
-        "foreground": "#ffb3c1"
+        "foreground": "#FFC799"
       }
     },
     {
@@ -1998,10 +1998,10 @@
       }
     },
     {
-      "name": "c variable readwrite",
-      "scope": "variable.other.readwrite.c",
+      "name": "variable readwrite",
+      "scope": "variable.other.readwrite.c, variable.other.readwrite.terraform ",
       "settings": {
-        "foreground": "#ff8097"
+        "foreground": "#ffb3c1"
       }
     },
     {
