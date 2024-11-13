@@ -1998,6 +1998,13 @@
       }
     },
     {
+      "name": "variable shell",
+      "scope": "variable.other.assignment.shell",
+      "settings": {
+        "foreground": "#fff"
+      }
+    },
+    {
       "name": "variable readwrite",
       "scope": "variable.other.readwrite.c, variable.other.readwrite.terraform ",
       "settings": {
