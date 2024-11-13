@@ -1125,11 +1125,18 @@
     },
     {
       "name": "[VSCODE-CUSTOM] Asciidoc link name",
-      "scope": "string.unquoted.asciidoc,markup.other.url.asciidoc,string.unquoted.plain.in.yaml,string.unquoted.plain.out.yaml,string.quoted.double.yaml,string.quoted.single.yaml",
+      "scope": "string.unquoted.asciidoc,markup.other.url.asciidoc",
       "settings": {
         "foreground": "#FFF"
       }
     },
+    {
+      "name" : "Yaml string color",
+      "scope" : "string.unquoted.plain.in.yaml,string.unquoted.plain.out.yaml,string.quoted.double.yaml,string.quoted.single.yaml",
+      "settings": {
+        "foreground": "#FFC799",
+      }
+    }
     {
       "name": "Regular Expressions",
       "scope": "string.regexp",
