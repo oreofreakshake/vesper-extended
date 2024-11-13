@@ -1131,12 +1131,12 @@
       }
     },
     {
-      "name" : "Yaml string color",
-      "scope" : "string.unquoted.plain.in.yaml,string.unquoted.plain.out.yaml,string.quoted.double.yaml,string.quoted.single.yaml",
+      "name": "Yaml string color",
+      "scope": "string.unquoted.plain.in.yaml,string.unquoted.plain.out.yaml,string.quoted.double.yaml,string.quoted.single.yaml",
       "settings": {
-        "foreground": "#FFC799",
+        "foreground": "#FFC799"
       }
-    }
+    },
     {
       "name": "Regular Expressions",
       "scope": "string.regexp",
