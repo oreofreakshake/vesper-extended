@@ -1125,7 +1125,7 @@
     },
     {
       "name": "[VSCODE-CUSTOM] Asciidoc link name",
-      "scope": "string.unquoted.asciidoc,markup.other.url.asciidoc",
+      "scope": "string.unquoted.asciidoc,markup.other.url.asciidoc,string.unquoted.plain.in.yaml,string.unquoted.plain.out.yaml,string.quoted.double.yaml,string.quoted.single.yaml",
       "settings": {
         "foreground": "#FFF"
       }
@@ -1403,15 +1403,8 @@
       }
     },
     {
-      "name": "constant.language.symbol.ruby",
-      "scope": "constant.language.symbol.ruby",
-      "settings": {
-        "foreground": "#66CBB3"
-      }
-    },
-    {
-      "name": "constant.language.symbol.hashkey.ruby",
-      "scope": "constant.language.symbol.hashkey.ruby",
+      "name": "constant.language",
+      "scope": "constant.language.symbol.ruby,constant.language.boolean.yaml,constant.language.symbol.hashkey.ruby",
       "settings": {
         "foreground": "#66CBB3"
       }

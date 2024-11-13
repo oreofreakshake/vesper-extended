@@ -9,7 +9,7 @@
     "url": "https://github.com/KOCEAN33/vesper-extended"
   },
   "icon": "icon.png",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "engines": {
     "vscode": "^1.8.0"
   },
