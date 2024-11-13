@@ -350,21 +350,21 @@
       "name": "operator logical",
       "scope": "keyword.operator.logical",
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
       "name": "operator bitwise",
       "scope": "keyword.operator.bitwise",
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
       "name": "operator channel",
       "scope": "keyword.operator.channel",
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
@@ -378,7 +378,7 @@
       "name": "CSS/SCSS/LESS Operators",
       "scope": "keyword.operator.css,keyword.operator.scss,keyword.operator.less",
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
@@ -406,7 +406,7 @@
       "name": "css property-name",
       "scope": "support.type.vendored.property-name.css",
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
@@ -533,7 +533,7 @@
       "name": "js dom",
       "scope": "support.type.object.dom",
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
@@ -547,7 +547,7 @@
       "name": "keyword.operator",
       "scope": "keyword.operator.arithmetic,keyword.operator.comparison,keyword.operator.decrement,keyword.operator.increment,keyword.operator.relational",
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
@@ -575,7 +575,7 @@
       "name": "C type posix-reserved",
       "scope": "support.type.posix-reserved.c,support.type.posix-reserved.cpp",
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
@@ -596,7 +596,7 @@
       "name": "python type",
       "scope": "support.type.python",
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
@@ -652,7 +652,7 @@
       "name": "Compound Assignment Operators js/ts",
       "scope": "keyword.operator.assignment.compound.js,keyword.operator.assignment.compound.ts",
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
@@ -896,6 +896,13 @@
       }
     },
     {
+      "name": "Integers",
+      "scope": "constant.numeric.json",
+      "settings": {
+        "foreground": "#99FFE4"
+      }
+    },
+    {
       "name": "Constants",
       "scope": "constant",
       "settings": {
@@ -1132,7 +1139,7 @@
     },
     {
       "name": "Yaml string color",
-      "scope": "string.unquoted.plain.in.yaml,string.unquoted.plain.out.yaml,string.quoted.double.yaml,string.quoted.single.yaml",
+      "scope": "string.unquoted.plain.in.yaml,string.unquoted.plain.out.yaml,string.quoted.double.yaml,string.quoted.single.yaml,string.quoted.double.json,string.quoted.single.json",
       "settings": {
         "foreground": "#FFC799"
       }
@@ -1141,7 +1148,7 @@
       "name": "Regular Expressions",
       "scope": "string.regexp",
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
@@ -1231,7 +1238,7 @@
       "name": "Source Json Meta Structure Dictionary Json > Constant Language Json,source Json Meta Structure Array Json > Constant Language Json",
       "scope": "source.json meta.structure.dictionary.json > constant.language.json,source.json meta.structure.array.json > constant.language.json",
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
@@ -1350,7 +1357,7 @@
       "name": "php logical/bitwise operator",
       "scope": "keyword.operator.logical.php,keyword.operator.bitwise.php,keyword.operator.arithmetic.php",
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
@@ -1364,7 +1371,7 @@
       "name": "php comparison",
       "scope": "keyword.operator.comparison.php",
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
@@ -1385,7 +1392,7 @@
       "name": "python function support",
       "scope": "support.token.decorator.python,meta.function.decorator.identifier.python",
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
@@ -1413,14 +1420,14 @@
       "name": "constant.language",
       "scope": "constant.language.symbol.ruby,constant.language.boolean.yaml,constant.language.symbol.hashkey.ruby",
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
       "name": "rgb-value",
       "scope": "rgb-value",
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
@@ -1581,7 +1588,7 @@
       "name": "js operator.assignment",
       "scope": ["keyword.operator.assignment"],
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
@@ -1622,7 +1629,7 @@
       "name": "elm prelude",
       "scope": ["support.type.prelude.elm"],
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
@@ -1674,7 +1681,7 @@
       "name": "Clojure constants",
       "scope": ["constant.keyword.clojure"],
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
@@ -1779,7 +1786,7 @@
       "name": "heading 2, callable",
       "scope": ["entity.name.class.xi"],
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
@@ -1800,7 +1807,7 @@
       "name": "heading 5, enums, preprocessor, constant, decorator",
       "scope": ["keyword.control.xi"],
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
@@ -1916,7 +1923,7 @@
         "constant.language.symbol.double-quoted.elixir"
       ],
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
@@ -2034,7 +2041,7 @@
     {
       "scope": ["constant.character.escape"],
       "settings": {
-        "foreground": "#66CBB3"
+        "foreground": "#99FFE4"
       }
     },
     {
