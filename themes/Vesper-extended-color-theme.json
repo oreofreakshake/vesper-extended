@@ -913,7 +913,7 @@
       "name": "Tags",
       "scope": "entity.name.tag",
       "settings": {
-        "foreground": "#ff8097"
+        "foreground": "#FFF"
       }
     },
     {
@@ -1231,14 +1231,14 @@
       "name": "[VSCODE-CUSTOM] JSON Property Name",
       "scope": "support.type.property-name.json",
       "settings": {
-        "foreground": "#ff8097"
+        "foreground": "#fff"
       }
     },
     {
       "name": "[VSCODE-CUSTOM] JSON Punctuation for Property Name",
       "scope": "support.type.property-name.json punctuation",
       "settings": {
-        "foreground": "#ff8097"
+        "foreground": "#fff"
       }
     },
     {

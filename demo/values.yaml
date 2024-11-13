@@ -1,0 +1,74 @@
+# Default Helm Values
+loki:
+  auth_enabled: false
+  schemaConfig:
+    configs:
+      - from: 2024-04-01
+        store: tsdb
+        object_store: s3
+        schema: v13
+        index:
+          prefix: index_
+          period: 24h
+  ingester:
+    chunk_target_size: 1572864
+    chunk_encoding: snappy
+    max_chunk_age: 2h
+    chunk_idle_period: 1h
+  tracing:
+    enabled: true
+  querier:
+    max_concurrent: 8
+  limits_config:
+    retention_period: 168h
+    reject_old_samples: true
+    reject_old_samples_max_age: 168h
+    max_cache_freshness_per_query: 10m
+    max_query_parallelism: 32
+    split_queries_by_interval: 15m
+    query_timeout: 300s
+    volume_enabled: true
+    # bigger file size
+    ingestion_rate_mb: 20
+    ingestion_burst_size_mb: 40
+  compactor:
+    working_directory: /tmp/loki/compactor
+    retention_enabled: true
+    compaction_interval: 5m
+    retention_delete_delay: 2h
+    retention_delete_worker_count: 150
+    delete_request_store: s3
+
+gateway:
+  tolerations:
+    - key: "CriticalAddonsOnly"
+      operator: "Exists"
+      effect: "NoSchedule"
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: karpenter.sh/nodepool
+                operator: DoesNotExist
+
+chunksCache:
+  enabled: true
+  allocatedMemory: 100
+  tolerations:
+    - key: "CriticalAddonsOnly"
+      operator: "Exists"
+      effect: "NoSchedule"
+
+resultsCache:
+  allocatedMemory: 100
+  resources:
+    requests:
+      cpu: 50m
+      memory: 120Mi
+    limits:
+      memory: 150Mi
+  tolerations:
+    - key: "CriticalAddonsOnly"
+      operator: "Exists"
+      effect: "NoSchedule"

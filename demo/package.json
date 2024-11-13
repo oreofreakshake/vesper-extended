@@ -9,9 +9,9 @@
     "url": "https://github.com/KOCEAN33/vesper-extended"
   },
   "icon": "icon.png",
-  "version": "1.0.6",
+  "version": "1.0.5",
   "engines": {
-    "vscode": "^1.8.0"
+    "vscode": "^1.75.0"
   },
   "categories": [
     "Themes"
