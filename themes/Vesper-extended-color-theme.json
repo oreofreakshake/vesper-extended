@@ -1138,10 +1138,38 @@
       }
     },
     {
-      "name": "Yaml string color",
-      "scope": "string.unquoted.plain.in.yaml,string.unquoted.plain.out.yaml,string.quoted.double.yaml,string.quoted.single.yaml,string.quoted.double.json,string.quoted.single.json",
+      "name": "yaml, json, ansible string color",
+      "scope": [
+        "string.unquoted.plain.in.yaml",
+        "string.unquoted.plain.out.yaml",
+        "string.quoted.double.yaml",
+        "string.quoted.single.yaml",
+        "string.quoted.double.json",
+        "string.quoted.single.json",
+        "string.unquoted.plain.out.ansible",
+        "string.unquoted.block.ansible",
+        "string.quoted.double.ansible"
+      ],
       "settings": {
         "foreground": "#FFC799"
+      }
+    },
+    {
+      "name": "ansible keyword keyword",
+      "scope": ["variable.other.jinja"],
+      "settings": {
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "jinja keyword keyword",
+      "scope": [
+        "keyword.operator.jinja",
+        "keyword.control.jinja",
+        "constant.language.boolean.ansible"
+      ],
+      "settings": {
+        "foreground": "#99FFE4"
       }
     },
     {

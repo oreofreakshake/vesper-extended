@@ -1,0 +1,136 @@
+---
+# tasks file for nvidia-driver
+
+- name: Check Ubuntu distribution
+  ansible.builtin.fail:
+    msg: "This role supports Ubuntu only. Current OS: {{ ansible_facts.get('distribution', 'Unknown') }}"
+  when: ansible_facts.get('distribution') != "Ubuntu"
+
+- name: Check supported Ubuntu version
+  ansible.builtin.fail:
+    msg: "Unsupported Ubuntu version. Current: {{ nvidia_driver_current_ubuntu_version }}, Supported: {{ nvidia_driver_ubuntu_supported_versions }}"
+  when: nvidia_driver_current_ubuntu_version not in nvidia_driver_ubuntu_supported_versions
+
+- name: Check current NVIDIA driver installation
+  ansible.builtin.command:
+    cmd: nvidia-smi --version
+  register: nvidia_driver_current_check
+  failed_when: false
+  changed_when: false
+
+- name: Check current NVIDIA Container Toolkit installation
+  ansible.builtin.command:
+    cmd: nvidia-container-runtime --version
+  register: nvidia_container_toolkit_current_check
+  failed_when: false
+  changed_when: false
+
+- name: Set installation facts
+  ansible.builtin.set_fact:
+    nvidia_driver_is_installed: "{{ nvidia_driver_current_check.rc == 0 }}"
+    nvidia_container_toolkit_is_installed: "{{ nvidia_container_toolkit_current_check.rc == 0 }}"
+
+- name: Display current installation status
+  ansible.builtin.debug:
+    msg: |
+      NVIDIA Driver Installation Status:
+      - Driver installed: {{ nvidia_driver_is_installed }}
+      - Container Toolkit installed: {{ nvidia_container_toolkit_is_installed }}
+      - Force reinstall: {{ nvidia_driver_force_reinstall }}
+    verbosity: 1
+
+- name: Check Secure Boot status
+  ansible.builtin.include_tasks: check_secure_boot.yml
+  when: nvidia_driver_check_secure_boot
+
+- name: Install required packages
+  ansible.builtin.apt:
+    name: "{{ nvidia_driver_required_packages }}"
+    state: present
+    update_cache: "{{ nvidia_driver_update_cache }}"
+  become: true
+
+- name: Remove existing NVIDIA drivers if force reinstall is enabled
+  ansible.builtin.include_tasks: remove_nvidia_drivers.yml
+  when:
+    - nvidia_driver_force_reinstall
+    - nvidia_driver_is_installed
+
+- name: Disable nouveau driver before installation
+  ansible.builtin.include_tasks: disable_nouveau.yml
+  when: >
+    not nvidia_driver_is_installed or
+    nvidia_driver_force_reinstall
+
+- name: Install NVIDIA driver
+  ansible.builtin.include_tasks: install_nvidia_driver.yml
+  when: >
+    not nvidia_driver_is_installed or
+    nvidia_driver_force_reinstall
+
+- name: Check Docker installation
+  ansible.builtin.command:
+    cmd: docker --version
+  register: docker_current_check
+  failed_when: false
+  changed_when: false
+
+- name: Set Docker installation fact
+  ansible.builtin.set_fact:
+    docker_is_installed: "{{ docker_current_check.rc == 0 }}"
+
+- name: Display Docker installation status
+  ansible.builtin.debug:
+    msg: "Docker installed: {{ docker_is_installed | default(false) }}"
+    verbosity: 1
+
+- name: Install NVIDIA Container Toolkit
+  ansible.builtin.include_tasks: install_container_runtime.yml
+  when:
+    - nvidia_driver_install_container_toolkit
+    - docker_is_installed | default(false)
+
+- name: Reboot system if required and auto reboot is enabled
+  ansible.builtin.meta: flush_handlers
+
+- name: Check if system indicates reboot is required
+  ansible.builtin.stat:
+    path: /var/run/reboot-required
+  register: system_reboot_required_file
+
+- name: Set reboot flag from system state
+  ansible.builtin.set_fact:
+    nvidia_driver_needs_reboot: true
+  when: system_reboot_required_file.stat.exists | default(false)
+
+- name: Notify reboot handler
+  ansible.builtin.debug:
+    msg: "Queueing reboot handler due to NVIDIA driver installation requiring reboot"
+  changed_when: true
+  notify: Reboot system if auto reboot enabled
+  when: nvidia_driver_needs_reboot | default(false)
+
+- name: Execute reboot handler if needed
+  ansible.builtin.meta: flush_handlers
+
+- name: Verify installation
+  ansible.builtin.include_tasks: verify_installation.yml
+  when: nvidia_driver_verify_installation
+
+- name: Clean up packages
+  ansible.builtin.apt:
+    autoremove: true
+  become: true
+  when: nvidia_driver_autoremove
+
+- name: Display installation completion message
+  ansible.builtin.debug:
+    msg: |
+      NVIDIA driver installation completed!
+      Reboot required: {{ nvidia_driver_needs_reboot | default(true) }}
+      {% if nvidia_driver_auto_reboot %}
+      System will reboot automatically.
+      {% else %}
+      Please reboot the system manually to complete the installation.
+      {% endif %}
+    verbosity: 1
