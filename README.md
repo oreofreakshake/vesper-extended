@@ -1,6 +1,6 @@
 ![Vesper Preview](https://cdn.rauno.me/vesper-og.png)
 
-# Vesper
+# Vesper Cursor fork
 
 Peppermint and orange flavored dark theme for VSCode.
 
@@ -19,3 +19,7 @@ npm install -g yo generator-code vsce
 vsce package
 
 ```
+
+## Original
+
+> https://github.com/KOCEAN33/vesper-extended
